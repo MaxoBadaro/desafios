@@ -20,7 +20,7 @@ Retorna:*/
 const hayStock = (cantidad, stock) => {
     if(cantidad > stock) {
         alert(`No tenemos suficiente stock, el disponible es ${stock}`);
-        return false;
+        return false; 
     }
     return true;
 }
