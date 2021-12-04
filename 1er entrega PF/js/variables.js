@@ -1,4 +1,4 @@
-//------Este archivo contiene las variables necesarias para la Fruteria Online------//
+//------Este archivo contiene las variables necesarias para la Dulceria Online------//
 
 let orden = "si";
 let respuesta = "si";
