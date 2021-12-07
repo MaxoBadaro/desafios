@@ -24,8 +24,11 @@ let carrito = []
 
 //Esta es la función principal, me ingresa los prductos al arreglo y llamo a las demas funciones//
 function agregarAlCarrito(prodId){
+
     let producto = productos.find((prod)=> prod.id === prodId);//prod.id del producto sea igual al prodId ingregsado por parámetro
     carrito.push(producto);//se agrega el poducto al arreglo carrito
+    
+    
     calcularTotal();
     mostrarCompra();
     localStorage.setItem("carrito", JSON.stringify(carrito));//stringfy(para pasar a formato JSON), paso el arreglo completo
@@ -75,8 +78,8 @@ function vaciarCarrito(){
     cantidadComprada.innerText = 0;
     totalAPagar.innerText = 0;
     localStorage.removeItem("carrito");
-    tableBody.remove();//borro todo los productos seleccionados que se ven en la pantalla
-    window.location.reload();//recargo la página porque sin eso
+    tableBody.innerHTML = "";//borro todo los productos seleccionados que se ven en la pantalla
+    //window.location.reload();//recargo la página porque sin eso
     //cuando quiero agregar nuevamente una vez vacié el carrito ya no me inserta productos en el carrito.
     //Hay alguna manera mejor?
 }
