@@ -75,4 +75,8 @@ function vaciarCarrito(){
     cantidadComprada.innerText = 0;
     totalAPagar.innerText = 0;
     localStorage.removeItem("carrito");
+    tableBody.remove();//borro todo los productos seleccionados que se ven en la pantalla
+    window.location.reload();//recargo la página porque sin eso
+    //cuando quiero agregar nuevamente una vez vacié el carrito ya no me inserta productos en el carrito.
+    //Hay alguna manera mejor?
 }
