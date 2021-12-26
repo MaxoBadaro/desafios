@@ -4,17 +4,19 @@
 /*La función realiza la creación del menú dinámico:*/
 
 let insertar = document.getElementById('contenedor');
+const cont = 0;
 productos.forEach((prod)=>{
     const contenedor = document.createElement("div")
     contenedor.className ="card"
     contenedor.style = "width: 18rem"
     contenedor.innerHTML = `
-                <img src="${prod.img}" class="card-img-top" alt="..."></img>
+                <img src="${prod.img}" class="card-img-top" alt="imagenes del producto"></img>
                 <div class="card-body">
                     <h5 class="card-title">${prod.name}</h5>
-                    <p class="card-text">Stock: ${prod.stock}</p>
-                    <p class="card-text">Precio:$ ${prod.price}</p>
-                    <button onclick="agregarAlCarrito(${prod.id})" class="btn btn-primary moverI">Agregar al carrito</button>
+                    <p class="card-text" id="stock${prod.id}">Stock: ${prod.stock}</p>
+                    <p class="card-text" id=precio${prod.id}>Precio: ${prod.price}</p>
+                    <button onclick="agregarAlCarrito(${prod.id})" class="btn btn-primary moverI" id="
+                    agregar${prod.id}">Agregar al carrito</button>
                 </div>
     `
     //$("#contenedor").append(contendor);
@@ -83,3 +85,21 @@ $("#vaciar").on("click", function vaciarCarrito(){
     localStorage.removeItem("carrito");
     tableBody.innerHTML = "";//borro todo los productos seleccionados que se ven en la pantalla
 });
+
+/* NO anda :(
+$(`#agregar${productos.id}`).click(() => { 
+    $(`#stock${productos.id}`).toggle("fast");
+    $(`#precio${productos.id}`).toggle("fast");
+});
+*/
+
+$("#vaciar").click(() => { 
+    $("#confirmar2").css("background-color", "red")
+                    .delay(2000)                
+                    .slideUp("slow")
+                    .delay(2000)
+                    .slideDown("slow");
+});
+
+
+
